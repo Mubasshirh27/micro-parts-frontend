@@ -13,7 +13,7 @@ const MyProfile = () => {
     const [dbUser, setDbUser] = useState({})
 
     useEffect(() => {
-        const url = `https://afternoon-scrubland-76054.herokuapp.com/user?email=${user?.email}`
+        const url = `http://localhost:5000/user?email=${user?.email}`
         fetch(url, {
             method: 'GET',
             headers: {
@@ -30,7 +30,7 @@ const MyProfile = () => {
         <div>
             <h2 className='text-2xl text-center text-black font-bold'>{user?.displayName} Profile</h2>
             {
-                Object.keys(dbUser)?.length === 3 ? <div className='w-20'>
+                Object.keys(dbUser)?.length === 2 ? <div className='w-20'>
                     <CircularProgressbar
                         value={percentage}
                         text={`${percentage}%`}
@@ -54,7 +54,7 @@ const MyProfile = () => {
                 openModal ? <UpdateProfileModal setOpenModal={setOpenModal} setPercentage={setPercentage}></UpdateProfileModal> : null
             }
             <ShowProfile></ShowProfile>
-            {Object.keys(dbUser)?.length === 3 ? <div className='text-center'>
+            {Object.keys(dbUser)?.length === 2 ? <div className='text-center'>
                 <label htmlFor="my-profile" onClick={() => setOpenModal(true)} className="btn modal-button">Update Profile</label>
             </div> : null}
 

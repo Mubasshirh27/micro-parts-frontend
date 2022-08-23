@@ -3,8 +3,6 @@ import Home from './PageContiner/Home/Home'
 import Purchase from './PageContiner/Purchase/Purchase'
 import { Route, Routes } from 'react-router-dom';
 import Login from './PageContiner/Login/Login';
-import Blogs from './PageContiner/Blogs/Blogs';
-import MyPortfolio from './PageContiner/MyPortfolio/MyPortfolio';
 import NotFound from './PageContiner/NotFound/NotFound';
 import Registration from './PageContiner/Registration/Registration';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -43,8 +41,6 @@ function App() {
             <Route path="/dashboard/addproduct" element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>} />
           </Route>
           <Route path="payment/:id" element={<RequireAuth><Payment /></RequireAuth>} />
-          <Route path="blogs" element={<Blogs />} />
-          <Route path="myportfolio" element={<MyPortfolio />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </QueryClientProvider>

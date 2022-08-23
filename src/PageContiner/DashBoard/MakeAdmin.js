@@ -5,7 +5,7 @@ import UserTable from '../../Components/userTable/UserTable';
 const MakeAdmin = () => {
     const queryClient = new QueryClient()
     const { isLoading, error, data, refetch } = useQuery('alluser', () =>
-        fetch('https://afternoon-scrubland-76054.herokuapp.com/alluser').then(res =>
+        fetch('http://localhost:5000/alluser').then(res =>
             res.json()
         )
     )

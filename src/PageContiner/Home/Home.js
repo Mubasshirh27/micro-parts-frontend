@@ -18,7 +18,7 @@ const Home = () => {
     const { data, isLoading } = useProducts();
     const queryClient = new QueryClient()
     const { isLoading: reviewLoading, error, data: review, refetch } = useQuery('review', () =>
-        fetch('https://afternoon-scrubland-76054.herokuapp.com/review').then(res =>
+        fetch('http://localhost:5000/review').then(res =>
             res.json()
         )
     )

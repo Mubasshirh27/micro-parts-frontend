@@ -7,7 +7,7 @@ const ShowProfile = () => {
     const [user, isloading] = useAuthState(auth)
     const [dbUser, setDbUser] = useState({})
     useEffect(() => {
-        const url = `https://afternoon-scrubland-76054.herokuapp.com/user?email=${user?.email}`
+        const url = `http://localhost:5000/user?email=${user?.email}`
         fetch(url, {
             method: 'GET',
             headers: {
@@ -28,9 +28,9 @@ const ShowProfile = () => {
             <div className='text-left'>
                 <p className='font-bold'>Name: {user?.displayName}</p>
                 <p className='font-bold'> Email: {dbUser?.email}</p>
-                {Object.keys(dbUser)?.length === 3 ? <p className='font-bold'>City: Not provided yet</p> : <p className='font-bold'>City: {dbUser?.city}</p>}
-                {Object.keys(dbUser)?.length === 3 ? <p className='font-bold'>Education: Not provided yet</p> : <p className='font-bold'>Education: {dbUser?.education}</p>}
-                {Object.keys(dbUser)?.length === 3 ? <p className='font-bold'>LinkedIn: Not provided yet</p> : <a className='font-bold text-blue-800' href={dbUser?.linkedInProfile}>Linkedin</a>}
+                {Object.keys(dbUser)?.length === 2 ? <p className='font-bold'>City: Not provided yet</p> : <p className='font-bold'>City: {dbUser?.city}</p>}
+                {Object.keys(dbUser)?.length === 2 ? <p className='font-bold'>Education: Not provided yet</p> : <p className='font-bold'>Education: {dbUser?.education}</p>}
+                {Object.keys(dbUser)?.length === 2 ? <p className='font-bold'>LinkedIn: Not provided yet</p> : <a className='font-bold text-blue-800' href={dbUser?.linkedInProfile}>Linkedin</a>}
             </div>
         </div>
     );

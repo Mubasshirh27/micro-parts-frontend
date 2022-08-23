@@ -5,7 +5,7 @@ import ManageOrderTable from '../../Components/ManageProductTable/ManageOrderTab
 const ManageOrders = () => {
     const queryClient = new QueryClient()
     const { isLoading, error, data, refetch } = useQuery('allcartedItem', () =>
-        fetch('https://afternoon-scrubland-76054.herokuapp.com/allcartedproduct').then(res =>
+        fetch('http://localhost:5000/allcartedproduct').then(res =>
             res.json()
         )
     )

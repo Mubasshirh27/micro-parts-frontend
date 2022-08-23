@@ -11,13 +11,13 @@ import auth from "../../firebase.init";
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
 // This is your test publishable API key.
-const stripePromise = loadStripe("pk_test_51L1c26AQe13D7JV4qkbk7P4B1hqD11LQp1f43VnqQ4E1kxBnQhUObvyRLxAHAEesfzQw9eCsyOUivrnIV5z5AkKG00S04v3xro");
+const stripePromise = loadStripe("pk_test_51LZ9txGXxgiiQIyCXWvoPoGN6xQYlEyiOj8l9cVnAy4omZR4e1SW8Xkor3OTOU9mZW6zms2BUaQ4fZmM7DwYZBAs00WE0k0iuN");
 
 const Payment = () => {
     const [user] = useAuthState(auth)
     const { id } = useParams();
     console.log(id)
-    const url = `https://afternoon-scrubland-76054.herokuapp.com/cart/${id}`;
+    const url = `http://localhost:5000/cart/${id}`;
 
     const { data: product, isLoading } = useQuery(['payment', id], () => fetch(url, {
         method: 'GET',

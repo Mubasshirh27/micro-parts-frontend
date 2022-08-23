@@ -7,7 +7,7 @@ const MyOrder = () => {
     const [user, loading] = useAuthState(auth)
     // Load carted product
     const { isLoading, error, data, refetch } = useQuery(['cartedData', user?.email], () =>
-        fetch(`https://afternoon-scrubland-76054.herokuapp.com/cartedItem?email=${user?.email}`).then(res =>
+        fetch(`http://localhost:5000/cartedItem?email=${user?.email}`).then(res =>
             res.json()
         )
     )

@@ -14,7 +14,7 @@ const Purchase = () => {
     console.log(user?.email)
     // data fetching
     const { isLoading, error, data, refetch } = useQuery(['product', id], () =>
-        fetch(`https://afternoon-scrubland-76054.herokuapp.com/product/${id}`).then(res =>
+        fetch(`http://localhost:5000/product/${id}`).then(res =>
             res.json()
         )
     )
@@ -48,7 +48,7 @@ const Purchase = () => {
         }
         const orderedQuantity = e.target[0].value
         const newStock = data?.stock - orderedQuantity
-        const url = `https://afternoon-scrubland-76054.herokuapp.com/products/${id}`
+        const url = `http://localhost:5000/products/${id}`
         const updatedProduct = { ...data, 'stock': newStock }
         console.log(updatedProduct)
         fetch(url, {
@@ -64,7 +64,7 @@ const Purchase = () => {
         toast.success('Product Added to cart')
         // Adding to cart
         const product = { name: data.name, img: data.img, description: data.description, quantity: orderedQuantity, paidStaus: 'unpaid', price: data.price, email: user?.email }
-        fetch('https://afternoon-scrubland-76054.herokuapp.com/cart', {
+        fetch('http://localhost:5000/cart', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(product)

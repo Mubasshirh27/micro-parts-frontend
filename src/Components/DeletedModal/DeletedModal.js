@@ -6,7 +6,7 @@ const DeletedModal = ({ setOpenModal, id, refetch }) => {
         e.preventDefault()
         setOpenModal(false)
         if (e.target[0].value === 'Delete') {
-            fetch(`https://afternoon-scrubland-76054.herokuapp.com/cartedItem/${id}`, {
+            fetch(`http://localhost:5000/cartedItem/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())

@@ -10,7 +10,7 @@ const AddReview = () => {
     const onSubmit = data => {
         const review = { 'name': user?.displayName, 'email': user?.email, 'review': data?.reviewText, 'star': data?.review, 'img': user?.photoURL }
         console.log(data);
-        const url = `https://afternoon-scrubland-76054.herokuapp.com/review`
+        const url = `http://localhost:5000/review`
         fetch(url, {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
@@ -34,7 +34,7 @@ const AddReview = () => {
                         {...register("reviewText")}
                     ></textarea>
                 </div>
-                <input type="range" min="1" max="5" className="range" step="1" className='w-1/3' {...register("review")} required />
+                <input type="range" min="1" max="5" step="1" className='w-1/3' {...register("review")} required />
                 <div className="w-1/3 flex justify-between text-xs px-2 cursor-pointer">
                     <span>1</span>
                     <span>2</span>
